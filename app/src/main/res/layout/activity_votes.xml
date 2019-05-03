@@ -135,4 +135,10 @@
         android:layout_height="wrap_content"
         android:text="¡FILTRAR!" />
 
+    <Button
+        android:id="@+id/button_again"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="¡Vota de nuevo!" />
+
 </LinearLayout>

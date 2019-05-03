@@ -31,6 +31,7 @@ public class Votes extends AppCompatActivity {
     private RadioGroup radioGroupVotos;
     private RadioButton filter;
     private Button button_filtro;
+    private Button button_again;
 
     FirebaseDatabase rtdb;
     private ArrayList<User> users;
@@ -51,6 +52,7 @@ public class Votes extends AppCompatActivity {
         v_strange = findViewById(R.id.v_strange);
         radioGroupVotos = findViewById(R.id.radioGroupVotos);
         button_filtro = findViewById(R.id.button_filtro);
+        button_again=findViewById(R.id.button_again);
 
 
         users = new ArrayList<User>();
@@ -80,6 +82,11 @@ public class Votes extends AppCompatActivity {
 
 
                 });
+
+                button_again.setOnClickListener((v)->{
+                   finish();
+                });
+
 
             }
 
