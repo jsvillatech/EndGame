@@ -4,7 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +21,17 @@ public class Votes extends AppCompatActivity {
 
 
     private TextView v_spiderman;
+    private TextView v_ironman;
+    private TextView v_america;
+    private TextView v_marvel;
+    private TextView v_hulk;
+    private TextView v_viuda;
+    private TextView v_thor;
+    private TextView v_strange;
+    private RadioGroup radioGroupVotos;
+    private RadioButton filter;
+    private Button button_filtro;
+
     FirebaseDatabase rtdb;
     private ArrayList<User> users;
 
@@ -26,8 +41,19 @@ public class Votes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_votes);
 
+        v_spiderman = findViewById(R.id.v_spiderman);
+        v_ironman = findViewById(R.id.v_ironman);
+        v_america = findViewById(R.id.v_america);
+        v_marvel = findViewById(R.id.v_marvel);
+        v_hulk = findViewById(R.id.v_hulk);
+        v_viuda = findViewById(R.id.v_viuda);
+        v_thor = findViewById(R.id.v_thor);
+        v_strange = findViewById(R.id.v_strange);
+        radioGroupVotos = findViewById(R.id.radioGroupVotos);
+        button_filtro = findViewById(R.id.button_filtro);
+
+
         users = new ArrayList<User>();
-        int totalVotes = 0;
 
         rtdb = FirebaseDatabase.getInstance();
 
@@ -40,49 +66,20 @@ public class Votes extends AppCompatActivity {
                     users.add(u);
                 }
 
-                int totalSpider = 0;
-                int totalIron = 0;
-                int totalAmerica = 0;
-                int totalMarvel = 0;
-                int totalHulk = 0;
-                int totalViuda = 0;
-                int totalThor = 0;
-                int totalStrange = 0;
+
+                button_filtro.setOnClickListener((v) -> {
+                    int idFilter = radioGroupVotos.getCheckedRadioButtonId();
+                    filter = findViewById(idFilter);
+                    //Toast.makeText(Votes.this,
+                    //filter.getText(), Toast.LENGTH_SHORT).show();
+
+                    ArrayList<User> aux = new ArrayList<User>();
+                    aux = filterPeople(filter.getText().toString());
+
+                    countVotes(aux);
 
 
-                for (int i = 0; i < users.size(); i++) {
-
-                    String a = users.get(i).getVote();
-
-                    if (a.equals("Spiderman")) {
-                        totalSpider += 1;
-                    } else if (a.equals("Ironman")) {
-                        totalIron += 1;
-                    } else if (a.equals("Capitán America")) {
-                        totalAmerica += 1;
-                    }
-                     else if (a.equals("Capitán Marvel")) {
-                        totalMarvel += 1;
-                    } else if (a.equals("Hulk")) {
-                        totalHulk += 1;
-                    } else if (a.equals("La viuda Negra")) {
-                        totalViuda += 1;
-                    }
-
-                    else if (a.equals("Thor")){
-                        totalThor+=1;
-                    }
-
-                    else if (a.equals("Doctor Strange")){
-                        totalStrange+=1;
-                    }
-                }
-
-                int totalSum=totalSpider+totalIron+totalAmerica+totalMarvel+totalHulk+totalViuda+totalThor+totalStrange;
-
-
-                v_spiderman = findViewById(R.id.v_spiderman);
-                v_spiderman.setText(totalSpider/totalSum);
+                });
 
             }
 
@@ -91,6 +88,136 @@ public class Votes extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+
+    public void countVotes(ArrayList<User> aux) {
+
+        int votosSpiderman = 0;
+        int votosIronman = 0;
+        int votosAmerica = 0;
+        int votosMarvel = 0;
+        int votosHulk = 0;
+        int votosViuda = 0;
+        int votosThor = 0;
+        int votosStrange = 0;
+        int total = 0;
+
+        for (int i = 0; i < aux.size(); i++) {
+
+
+            if (aux.get(i).getVote().equals("Spiderman")) {
+                votosSpiderman += 1;
+            } else if (aux.get(i).getVote().equals("Ironman")) {
+                votosIronman += 1;
+            } else if (aux.get(i).getVote().equals("Capitán América")) {
+                votosAmerica += 1;
+            } else if (aux.get(i).getVote().equals("Capitán Marvel")) {
+                votosMarvel += 1;
+            } else if (aux.get(i).getVote().equals("Hulk")) {
+                votosHulk += 1;
+            } else if (aux.get(i).getVote().equals("La viuda Negra")) {
+                votosViuda += 1;
+            } else if (aux.get(i).getVote().equals("Thor")) {
+                votosThor += 1;
+            } else {
+                votosStrange += 1;
+            }
+        }
+
+        total = votosSpiderman + votosIronman + votosAmerica + votosMarvel + votosHulk + votosViuda + votosThor + votosStrange;
+
+
+        if (total != 0) {
+            v_spiderman.setText("Spiderman: " + ((double) votosSpiderman / total) * 100 + "%");
+            v_ironman.setText("Ironman: " + ((double) votosIronman / total) * 100 + "%");
+            v_america.setText("Capitan America: " + ((double) votosAmerica / total) * 100 + "%");
+            v_marvel.setText("Capitan marvel: " + ((double) votosMarvel / total) * 100 + "%");
+            v_hulk.setText("Hulk: " + ((double) votosHulk / total) * 100 + "%");
+            v_viuda.setText("La viuda negra: " + ((double) votosViuda / total) * 100 + "%");
+            v_thor.setText("Thor: " + ((double) votosThor / total) * 100 + "%");
+            v_strange.setText("Doctor Strange: " + ((double) votosStrange / total) * 100 + "%");
+        } else {
+
+            v_spiderman.setText("Spiderman" + "NO HAY DATOS");
+            v_ironman.setText("Ironman: " + "NO HAY DATOS");
+            v_america.setText("Capitan America: " + "NO HAY DATOS");
+            v_marvel.setText("Capitan marvel: " + "NO HAY DATOS");
+            v_hulk.setText("Hulk: " + "NO HAY DATOS");
+            v_viuda.setText("La viuda negra: " + "NO HAY DATOS");
+            v_thor.setText("Thor: " + "NO HAY DATOS");
+            v_strange.setText("Doctor Strange: " + "NO HAY DATOS");
+
+
+        }
+
+
+    }
+
+
+    public ArrayList<User> filterPeople(String criteria) {
+        ArrayList<User> aux = new ArrayList<User>();
+        if (criteria.equals("Niños")) {
+            for (int i = 0; i < users.size(); i++) {
+                int edad = Integer.parseInt(users.get(i).getAge());
+                if (edad <= 12) {
+                    aux.add(users.get(i));
+                }
+            }
+            return aux;
+        } else if (criteria.equals("Mujeres adultas")) {
+
+
+            for (int i = 0; i < users.size(); i++) {
+                int edad = Integer.parseInt(users.get(i).getAge());
+                if (edad >= 18 && users.get(i).getSex().equals("F")) {
+                    aux.add(users.get(i));
+                }
+            }
+            return aux;
+
+
+        } else if (criteria.equals("Hombres adultos")) {
+
+            for (int i = 0; i < users.size(); i++) {
+                int edad = Integer.parseInt(users.get(i).getAge());
+                if (edad >= 18 && users.get(i).getSex().equals("M")) {
+                    aux.add(users.get(i));
+                }
+            }
+            return aux;
+
+
+        } else if (criteria.equals("Mujeres adolescentes")) {
+
+
+            for (int i = 0; i < users.size(); i++) {
+                int edad = Integer.parseInt(users.get(i).getAge());
+                if (edad > 12 && users.get(i).getSex().equals("F") && edad < 18) {
+                    aux.add(users.get(i));
+                }
+            }
+            return aux;
+
+
+        } else if (criteria.equals("Hombres adolescentes")) {
+
+
+            for (int i = 0; i < users.size(); i++) {
+                int edad = Integer.parseInt(users.get(i).getAge());
+                if (edad > 12 && users.get(i).getSex().equals("M") && edad < 18) {
+                    aux.add(users.get(i));
+                }
+            }
+            return aux;
+
+
+        }
+
+
+        return users;
 
 
     }
