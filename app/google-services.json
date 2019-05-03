@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "630034102825",
+    "firebase_url": "https://endgame-d40d8.firebaseio.com",
+    "project_id": "endgame-d40d8",
+    "storage_bucket": "endgame-d40d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630034102825:android:2a9ab8b40b9a07a8",
+        "android_client_info": {
+          "package_name": "apps.pp.endgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630034102825-305fb86hrpodklc6gbh24teord6r5eot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "apps.pp.endgame",
+            "certificate_hash": "d99607803ed343f79724b46fa6c128d6f52aee13"
+          }
+        },
+        {
+          "client_id": "630034102825-j9qi0qgmfbb9vpiq4bdp26r3nln2a2ng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrToFUACdCwx1kGsGYAK3dC2-2Z0oCT9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630034102825-j9qi0qgmfbb9vpiq4bdp26r3nln2a2ng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

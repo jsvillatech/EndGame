@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=" ENCUESTA MUNDO MARVEL"
+        android:textSize="20sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Genero: "
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupGen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="M" />
+
+            <RadioButton
+                android:id="@+id/radioF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="F" />
+
+        </RadioGroup>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre:  "
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edad: "
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:gravity="center"
+        android:id="@+id/age"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Superhéroe favorito: "
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/radioSpider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Spiderman" />
+
+        <RadioButton
+            android:id="@+id/radioIron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Ironman" />
+
+        <RadioButton
+            android:id="@+id/radioAmerica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capitán América" />
+
+        <RadioButton
+            android:id="@+id/radioMarvel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capitán Marvel" />
+
+        <RadioButton
+            android:id="@+id/radioHulk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hulk" />
+
+        <RadioButton
+            android:id="@+id/radioViuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="La viuda Negra" />
+
+        <RadioButton
+            android:id="@+id/radioThor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thor" />
+
+        <RadioButton
+            android:id="@+id/radioStrange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doctor Strange" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/vote"
+        android:text="¡VOTAR!"/>
+
+
+</LinearLayout>

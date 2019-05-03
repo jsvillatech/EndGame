@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="FILTROS VOTACIÓN"
+        android:textSize="20sp" />
+
+
+
+        <RadioGroup
+            android:id="@+id/radioGroupVotos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioTodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Todos" />
+
+            <RadioButton
+                android:id="@+id/radioMAdultas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mujeres adultas" />
+
+            <RadioButton
+                android:id="@+id/radioHAdultos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hombres adultos" />
+
+            <RadioButton
+                android:id="@+id/radioMAdole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mujeres adolescentes" />
+
+            <RadioButton
+                android:id="@+id/radioHAdole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hombres adolescentes" />
+
+            <RadioButton
+                android:id="@+id/radioNino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Niños" />
+
+
+        </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ESTADISTÍCAS"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spiderman: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_spiderman"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ironman: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_ironman"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capitán América: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_america"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capitán Marvel: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_marvel"
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hulk: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_hulk"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="La viuda Negra: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_viuda"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thor: "
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:id="@+id/v_thor"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Doctor Strange: "
+        android:textSize="15sp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:id="@+id/v_strange"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/v_strange"
+            android:layout_marginLeft="200dp"
+            android:layout_marginEnd="45dp"
+            android:text="filtrar" />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
