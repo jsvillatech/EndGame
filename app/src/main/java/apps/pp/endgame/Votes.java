@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Votes extends AppCompatActivity {
@@ -135,17 +136,17 @@ public class Votes extends AppCompatActivity {
         }
 
         total = votosSpiderman + votosIronman + votosAmerica + votosMarvel + votosHulk + votosViuda + votosThor + votosStrange;
-
+        DecimalFormat f = new DecimalFormat("##.00");
 
         if (total != 0) {
-            v_spiderman.setText("Spiderman: " + ((double) votosSpiderman / total) * 100 + "%");
-            v_ironman.setText("Ironman: " + ((double) votosIronman / total) * 100 + "%");
-            v_america.setText("Capitan America: " + ((double) votosAmerica / total) * 100 + "%");
-            v_marvel.setText("Capitan marvel: " + ((double) votosMarvel / total) * 100 + "%");
-            v_hulk.setText("Hulk: " + ((double) votosHulk / total) * 100 + "%");
-            v_viuda.setText("La viuda negra: " + ((double) votosViuda / total) * 100 + "%");
-            v_thor.setText("Thor: " + ((double) votosThor / total) * 100 + "%");
-            v_strange.setText("Doctor Strange: " + ((double) votosStrange / total) * 100 + "%");
+            v_spiderman.setText("Spiderman: " + f.format(((double) votosSpiderman / total) * 100) + "%");
+            v_ironman.setText("Ironman: " + f.format(((double) votosIronman / total) * 100) + "%");
+            v_america.setText("Capitan America: " + f.format(((double) votosAmerica / total) * 100) + "%");
+            v_marvel.setText("Capitan marvel: " + f.format(((double) votosMarvel / total) * 100) + "%");
+            v_hulk.setText("Hulk: " + f.format(((double) votosHulk / total) * 100) + "%");
+            v_viuda.setText("La viuda negra: " + f.format(((double) votosViuda / total) * 100) + "%");
+            v_thor.setText("Thor: " + f.format(((double) votosThor / total) * 100) + "%");
+            v_strange.setText("Doctor Strange: " + f.format(((double) votosStrange / total) * 100) + "%");
         } else {
 
             v_spiderman.setText("Spiderman" + "NO HAY DATOS");
